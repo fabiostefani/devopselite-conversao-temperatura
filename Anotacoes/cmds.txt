@@ -1,0 +1,45 @@
+Pod
+
+. k3d cluster create
+. kubectl get nodes
+
+. k3d cluster list
+. k3d cluster delete
+
+. k3d cluster create --no-lb >>> vai criar sem load balancer
+. k3d cluster create meucluster >>> com o nome MeuCluster
+. k3d cluster create meucluster --servers 3 --agents 3 >> vai criar com 3 servers e com 3 agents
+
+. kubectl api-resources
+
+
+//para aplicar os manifestos dos pods
+
+kubectl apply -f .\pod.yaml
+
+. kubectl get pods
+. kubectl describe pod meupod
+
+. kubectl get pods -l cor=azul >> aplicar filtro de acordo com o Label dentro do Pod
+
+. kubectl delete -f .\pod.yaml
+
+Replicaset
+
+. kubectl apply -f .\replicaset.yaml
+
+kubectl get replicaset
+
+kubectl describe replicaset meureplicaset
+
+kubectl delete -f .\replicaset.yaml
+
+Deployment
+
+kubectl apply -f .\deployment.yaml
+
+Server
+
+kubectl get services
+
+k3d cluster create meucluster -p "80:30000@loadbalancer"
